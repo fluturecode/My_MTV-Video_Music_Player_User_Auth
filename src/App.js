@@ -9,8 +9,6 @@ function App() {
 			<Header />
 			{/* <Video title={title} artist={artist} video={video} /> */}
 			<Video />
-			<Video />
-			<Video />
 		</div>
 	);
 }

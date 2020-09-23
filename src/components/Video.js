@@ -12,6 +12,20 @@ function Video({ title, artist, video }) {
 					<YouTube videoId="rmzqHSKr44I" />
 				</div>
 			</div>
+			<div className="video__container">
+				<h2>Michael Jackson</h2>
+				<h3>Billy Jean</h3>
+				<div clasName="video__player">
+					<YouTube videoId="Zi_XLOBDo_Y" />
+				</div>
+			</div>
+			<div className="video__container">
+				<h2>Sade</h2>
+				<h3>Hang On To Your Love</h3>
+				<div clasName="video__player">
+					<YouTube videoId="kxNJV83EMJw" />
+				</div>
+			</div>
 		</div>
 	);
 }
