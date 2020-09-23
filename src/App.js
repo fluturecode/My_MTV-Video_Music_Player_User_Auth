@@ -7,6 +7,9 @@ function App() {
 	return (
 		<div className="app">
 			<Header />
+			{/* <Video title={title} artist={artist} video={video} /> */}
+			<Video />
+			<Video />
 			<Video />
 		</div>
 	);

@@ -2,13 +2,15 @@ import React from "react";
 import "./Video.css";
 import YouTube from "react-youtube";
 
-function Video() {
+function Video({ title, artist, video }) {
 	return (
 		<div className="video">
-			<h1>Song Title</h1>
-			<h2>Artist</h2>
-			<div clasName="app__player">
-				<YouTube videoId="rmzqHSKr44I" />
+			<div className="video__container">
+				<h2>Pirvu</h2>
+				<h3>C'est La Vie Tu Joci Parsivs</h3>
+				<div clasName="video__player">
+					<YouTube videoId="rmzqHSKr44I" />
+				</div>
 			</div>
 		</div>
 	);
