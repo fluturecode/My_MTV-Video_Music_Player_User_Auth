@@ -6,10 +6,10 @@ function Video({ title, artist, video }) {
 	return (
 		<div className="video">
 			<div className="video__container">
-				<h2>Pirvu</h2>
-				<h3>C'est La Vie Tu Joci Parsivs</h3>
+				<h2>Rene & Angela</h2>
+				<h3>I'll Be Good</h3>
 				<div clasName="video__player">
-					<YouTube videoId="rmzqHSKr44I" />
+					<YouTube videoId="VVj1m8uy5AM" />
 				</div>
 			</div>
 			<div className="video__container">
