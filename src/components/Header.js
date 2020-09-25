@@ -6,7 +6,7 @@ function Header() {
 		<div className="header">
 			<img
 				className="header__logo"
-				src="http://cdn30.us1.fansshare.com/image/mtv/ba-mtv-logo-gallery-mtv-logo-clipart-mtv-198356865.jpg"
+				src="https://i.pinimg.com/originals/31/9b/62/319b62c09cd6148520ff471625105056.jpg"
 				alt="MTV logo"
 			/>
 		</div>
