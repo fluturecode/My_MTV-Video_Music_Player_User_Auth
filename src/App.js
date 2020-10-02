@@ -44,6 +44,30 @@ function App() {
 	const [registerOpen, setRegisterOpen] = useState(false);
 
 	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((authUser) => {
+			if (authUser) {
+				// user is logged in...
+				console.log(authUser);
+				setUser(authUser);
+
+				if (authUser.displayName) {
+					// dont update username
+				} else {
+					return authUser.updateProfile({
+						displayName: username,
+					});
+				}
+			} else {
+				setUser(null);
+			}
+		});
+
+		return () => {
+			unsubscribe();
+		};
+	}, [user, username]);
+
+	useEffect(() => {
 		db.collection("videos").onSnapshot((snapshot) =>
 			setVideos(
 				snapshot.docs.map((doc) => ({
@@ -86,27 +110,27 @@ function App() {
 	};
 
 	return (
-		<div className="app">
+		<div className='app'>
 			<Modal open={open} onClose={() => setOpen(false)}>
 				<div style={modalStyle} className={classes.paper}>
-					<form className="app__login">
+					<form className='app__login'>
 						<center>
 							<img
-								className="app__headerImage"
-								src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-								alt=""
+								className='app__headerImage'
+								src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
+								alt=''
 							/>
 						</center>
 
 						<Input
-							placeholder="email"
-							type="text"
+							placeholder='email'
+							type='text'
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<Input
-							placeholder="password"
-							type="password"
+							placeholder='password'
+							type='password'
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
@@ -117,29 +141,29 @@ function App() {
 
 			<Modal open={registerOpen} onClose={() => setRegisterOpen(false)}>
 				<div style={modalStyle} className={classes.paper}>
-					<form className="app__login">
+					<form className='app__login'>
 						<center>
 							<img
-								className="app__headerImage"
-								src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-								alt=""
+								className='app__headerImage'
+								src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
+								alt=''
 							/>
 						</center>
 						<Input
-							type="text"
-							placeholder="username"
+							type='text'
+							placeholder='username'
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
 						/>
 						<Input
-							placeholder="email"
-							type="text"
+							placeholder='email'
+							type='text'
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 						/>
 						<Input
-							placeholder="password"
-							type="password"
+							placeholder='password'
+							type='password'
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
@@ -148,29 +172,29 @@ function App() {
 				</div>
 			</Modal>
 			<Header />
-			<div className="app__form">
+			<div className='app__form'>
 				<form>
 					<input
-						placeholder="artist..."
+						placeholder='artist...'
 						value={artist}
 						onChange={(e) => setArtist(e.target.value)}
 					/>
 					<input
-						placeholder="title..."
+						placeholder='title...'
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
 					/>
 					<input
-						placeholder="videoId..."
+						placeholder='videoId...'
 						value={videoId}
 						onChange={(e) => setVideoId(e.target.value)}
 					/>
-					<Button variant="contained" type="submit" onClick={handleClick}>
+					<Button variant='contained' type='submit' onClick={handleClick}>
 						Add video
 					</Button>
 				</form>
 			</div>
-			<div className="app__video">
+			<div className='app__video'>
 				{videos.map(({ id, data }) => (
 					<Video
 						key={id}
