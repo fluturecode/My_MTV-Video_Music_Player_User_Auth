@@ -36,18 +36,6 @@
 	border: 1px solid lightgray;
 }
 
-.app__upload {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	background-color: white;
-	border-top: 1px solid lightgray;
-	text-align: center;
-	padding: 20px;
-	display: flex;
-	justify-content: center;
-}
-
 .app__headerImage {
 	object-fit: contain;
 }
@@ -59,11 +47,6 @@
 
 .app__headerRight > p {
 	margin-right: 5px;
-}
-
-.app__headerAvatar {
-	height: 30px !important;
-	width: 30px !important;
 }
 
 .app__header {

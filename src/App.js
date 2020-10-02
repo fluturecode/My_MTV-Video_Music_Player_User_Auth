@@ -115,11 +115,7 @@ function App() {
 				<div style={modalStyle} className={classes.paper}>
 					<form className='app__login'>
 						<center>
-							<img
-								className='app__headerImage'
-								src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
-								alt=''
-							/>
+							<img className='app__headerImage' src='' alt='' />
 						</center>
 
 						<Input
