@@ -3,39 +3,15 @@ import "./App.css";
 import Header from "./components/Header";
 import Video from "./components/Video";
 import { db, auth } from "./firebase";
-import { Button, makeStyles, Modal, Input } from "@material-ui/core";
-
-function getModalStyle() {
-	const top = 50;
-	const left = 50;
-
-	return {
-		height: "300px",
-		top: `${top}%`,
-		left: `${left}%`,
-		transform: `translate(-${top}%, -${left}%)`,
-	};
-}
-
-const useStyles = makeStyles((theme) => ({
-	paper: {
-		position: "absolute",
-		width: 400,
-		height: 200,
-		backgroundColor: theme.palette.background.paper,
-		border: "2px solid #000",
-		boxShadow: theme.shadows[5],
-		padding: theme.spacing(2, 4, 3),
-	},
-}));
+import { Button, Input } from "@material-ui/core";
 
 function App() {
+	// const [{}, dispatch] = useStateValue;
 	const [artist, setArtist] = useState("");
 	const [title, setTitle] = useState("");
 	const [videoId, setVideoId] = useState("");
 	const [videos, setVideos] = useState([]);
-	const classes = useStyles();
-	const [modalStyle] = useState(getModalStyle);
+
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -51,7 +27,7 @@ function App() {
 				setUser(authUser);
 
 				if (authUser.displayName) {
-					// dont update username
+					// do not update username
 				} else {
 					return authUser.updateProfile({
 						displayName: username,
@@ -111,62 +87,6 @@ function App() {
 
 	return (
 		<div className='app'>
-			<Modal open={open} onClose={() => setOpen(false)}>
-				<div style={modalStyle} className={classes.paper}>
-					<form className='app__login'>
-						<center>
-							<img className='app__headerImage' src='' alt='' />
-						</center>
-
-						<Input
-							placeholder='email'
-							type='text'
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-						/>
-						<Input
-							placeholder='password'
-							type='password'
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-						<Button onClick={handleLogin}>Login</Button>
-					</form>
-				</div>
-			</Modal>
-
-			<Modal open={registerOpen} onClose={() => setRegisterOpen(false)}>
-				<div style={modalStyle} className={classes.paper}>
-					<form className='app__login'>
-						<center>
-							<img
-								className='app__headerImage'
-								src='https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'
-								alt=''
-							/>
-						</center>
-						<Input
-							type='text'
-							placeholder='username'
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-						/>
-						<Input
-							placeholder='email'
-							type='text'
-							value={email}
-							onChange={(e) => setEmail(e.target.value)}
-						/>
-						<Input
-							placeholder='password'
-							type='password'
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-						<Button onClick={handleRegister}>Register</Button>
-					</form>
-				</div>
-			</Modal>
 			<Header />
 			<div className='app__form'>
 				<form>
