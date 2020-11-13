@@ -1,3 +1,6 @@
+.app {
+	background-color: rgb(41, 39, 39);
+}
 .app__form {
 	display: flex;
 	justify-content: center;
@@ -5,16 +8,11 @@
 
 .app__video {
 	justify-content: center;
-	background-color: black;
+	background-color: rgb(56, 54, 54);
 }
 
 * {
 	margin: 0;
-}
-
-.app {
-	background-color: #fafafa;
-	padding-bottom: 100px;
 }
 
 .app__login {
